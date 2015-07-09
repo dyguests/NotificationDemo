@@ -13,6 +13,9 @@
 		02C2265C1B4E0E0200264EB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C2265B1B4E0E0200264EB8 /* Images.xcassets */; };
 		02C2265F1B4E0E0200264EB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02C2265D1B4E0E0200264EB8 /* LaunchScreen.xib */; };
 		02C2266B1B4E0E0200264EB8 /* NotificationDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C2266A1B4E0E0200264EB8 /* NotificationDemoTests.swift */; };
+		02C226751B4E109800264EB8 /* NotificationUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C226741B4E109800264EB8 /* NotificationUtil.swift */; };
+		02C226771B4E163400264EB8 /* warnSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 02C226761B4E163400264EB8 /* warnSound.mp3 */; };
+		02C2267A1B4E273B00264EB8 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02C226791B4E273B00264EB8 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,10 @@
 		02C226641B4E0E0200264EB8 /* NotificationDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotificationDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		02C226691B4E0E0200264EB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02C2266A1B4E0E0200264EB8 /* NotificationDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDemoTests.swift; sourceTree = "<group>"; };
+		02C226741B4E109800264EB8 /* NotificationUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationUtil.swift; sourceTree = "<group>"; };
+		02C226761B4E163400264EB8 /* warnSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = warnSound.mp3; sourceTree = "<group>"; };
+		02C226781B4E273A00264EB8 /* NotificationDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NotificationDemo.entitlements; sourceTree = "<group>"; };
+		02C226791B4E273B00264EB8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C2267A1B4E273B00264EB8 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +67,7 @@
 		02C226461B4E0E0200264EB8 = {
 			isa = PBXGroup;
 			children = (
+				02C226791B4E273B00264EB8 /* AudioToolbox.framework */,
 				02C226511B4E0E0200264EB8 /* NotificationDemo */,
 				02C226671B4E0E0200264EB8 /* NotificationDemoTests */,
 				02C226501B4E0E0200264EB8 /* Products */,
@@ -77,6 +86,9 @@
 		02C226511B4E0E0200264EB8 /* NotificationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				02C226781B4E273A00264EB8 /* NotificationDemo.entitlements */,
+				02C226761B4E163400264EB8 /* warnSound.mp3 */,
+				02C226741B4E109800264EB8 /* NotificationUtil.swift */,
 				02C226541B4E0E0200264EB8 /* AppDelegate.swift */,
 				02C226561B4E0E0200264EB8 /* ViewController.swift */,
 				02C226581B4E0E0200264EB8 /* Main.storyboard */,
@@ -161,6 +173,15 @@
 				TargetAttributes = {
 					02C2264E1B4E0E0200264EB8 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 56LL8RVXCQ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 1;
+							};
+						};
 					};
 					02C226631B4E0E0200264EB8 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -192,6 +213,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C226771B4E163400264EB8 /* warnSound.mp3 in Resources */,
 				02C2265A1B4E0E0200264EB8 /* Main.storyboard in Resources */,
 				02C2265F1B4E0E0200264EB8 /* LaunchScreen.xib in Resources */,
 				02C2265C1B4E0E0200264EB8 /* Images.xcassets in Resources */,
@@ -214,6 +236,7 @@
 			files = (
 				02C226571B4E0E0200264EB8 /* ViewController.swift in Sources */,
 				02C226551B4E0E0200264EB8 /* AppDelegate.swift in Sources */,
+				02C226751B4E109800264EB8 /* NotificationUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +363,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NotificationDemo/NotificationDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NotificationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -350,7 +376,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NotificationDemo/NotificationDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = NotificationDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

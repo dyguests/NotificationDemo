@@ -20,6 +20,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func btnTapped(sender: AnyObject) {
+        NotificationUtil.notification(alertBody: "测试声音", soundName: "warnSound.mp3")
+        
+    }
+    
 }
 
